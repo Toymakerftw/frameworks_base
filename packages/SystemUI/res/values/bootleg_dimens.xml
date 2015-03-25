@@ -17,14 +17,14 @@
 -->
 <resources>
 
-	<!-- Sets a custom extra padding for the QS icons and statusbar date -->
-	<dimen name="qs_items_padding">0dp</dimen>
+     <!-- Sets a custom extra padding for the QS icons and statusbar date -->
+     <dimen name="qs_items_padding">0dp</dimen>
 
-	<!-- Network traffic monitor -->
-	<dimen name="net_traffic_txt_img_padding">1dp</dimen>
+     <!-- Network traffic monitor -->
+     <dimen name="net_traffic_txt_img_padding">1dp</dimen>
 
-	<!-- QS tile height without label -->
-	<dimen name="qs_tile_height_wo_label">48dp</dimen>
+     <!-- QS tile height without label -->
+     <dimen name="qs_tile_height_wo_label">48dp</dimen>
 
 	<!-- OmniStyle custom headers -->
     <dimen name="qs_header_image_offset">25dp</dimen>
@@ -98,5 +98,8 @@
     <dimen name="dismiss_all_fab_src_size">30dp</dimen>
 
     <dimen name="battery_bar_view_height">6dp</dimen>
+
+    <!-- QS detail view scrolling -->
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 
 </resources>
