@@ -5787,6 +5787,15 @@ public final class Settings {
          */
         private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * 0 - Default
+         * 1 - Round with ring
+         * 2 - Two-toned round with ring
+         * 3 - Squircle with ring
+         * @hide
+         */
+        public static final String QS_TILE_STYLE = "qs_tile_style";
+
 
         /**
          * Show data usage in QS header
@@ -6132,6 +6141,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
 	    PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
             PRIVATE_SETTINGS.add(QS_DATAUSAGE);
+            PRIVATE_SETTINGS.add(QS_TILE_STYLE);
         }
 
         /**

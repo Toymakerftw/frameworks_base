@@ -347,6 +347,30 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     public static final int FADE_KEYGUARD_DURATION = 300;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
 
+    private static final String[] QS_TILE_THEMES = {
+        "com.android.systemui.qstile.default", // 0
+        "com.bootleggers.qstile.squircle", // 1
+        "com.bootleggers.qstile.teardrop", // 2
+        "com.bootleggers.qstile.deletround", // 3
+        "com.bootleggers.qstile.inktober", // 4
+        "com.bootleggers.qstile.shishunights", // 5
+        "com.bootleggers.qstile.circlegradient", // 6
+        "com.bootleggers.qstile.wavey", // 7
+        "com.bootleggers.qstile.circledualtone", // 8
+        "com.bootleggers.qstile.squaremedo", // 9
+        "com.bootleggers.qstile.pokesign", // 10
+        "com.bootleggers.qstile.ninja", // 11
+        "com.bootleggers.qstile.dottedcircle", // 12
+        "com.bootleggers.qstile.shishuink", // 13
+        "com.bootleggers.qstile.attemptmountain", // 14
+        "com.bootleggers.qstile.cookie", // 15
+        "com.bootleggers.qstile.neonlike", // 16
+        "com.bootleggers.qstile.oos", // 17
+        "com.bootleggers.qstile.triangles", // 18
+        "com.bootleggers.qstile.divided", // 19
+        "com.bootleggers.qstile.cosmos" // 20
+    };
+
     /** If true, the system is in the half-boot-to-decryption-screen state.
      * Prudently disable QS and notifications.  */
     public static final boolean ONLY_CORE_APPS;
@@ -3652,6 +3676,15 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     }
 
     /**
+     * Switches qs tile style.
+     */
+     public void updateTileStyle() {
+         int qsTileStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                 Settings.System.QS_TILE_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        updateNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsTileStyle);
+     }
+
+    /**
      * Switches theme from light to dark and vice-versa.
      */
     protected void updateTheme() {
@@ -3664,6 +3697,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mContext.setTheme(themeResId);
             Dependency.get(ConfigurationController.class).notifyThemeChanged();
         }
+    }
+
+     // Switches qs tile style back to stock.
+    public void stockTileStyle() {
+        stockNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     private void updateDozingState() {
@@ -4153,6 +4191,34 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     public void updateQSDataUsageInfo() {
         DataUsageView.updateUsage();
+    }
+
+    // Switches qs tile style to user selected.
+    public static void updateNewTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
+        if (qsTileStyle == 0) {
+            stockNewTileStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(QS_TILE_THEMES[qsTileStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change qs tile style", e);
+            }
+        }
+    }
+
+    // Switches qs tile style back to stock.
+    public static void stockNewTileStyle(IOverlayManager om, int userId) {
+        // skip index 0
+        for (int i = 1; i < QS_TILE_THEMES.length; i++) {
+            String qstiletheme = QS_TILE_THEMES[i];
+            try {
+                om.setEnabled(qstiletheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public int getWakefulnessState() {
@@ -4732,6 +4798,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.GAMING_MODE_HEADSUP_TOGGLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4760,6 +4829,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 setQSblurRadius();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.LESS_BORING_HEADS_UP))) {
                 setUseLessBoringHeadsUp();
+            } else if (uri.equals(Settings.System.getUriFor(
+                Settings.System.QS_TILE_STYLE))) {
+                stockTileStyle();
+                updateTileStyle();
             }
             update();
         }
