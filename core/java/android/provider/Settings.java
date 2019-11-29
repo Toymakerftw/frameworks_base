@@ -5753,6 +5753,12 @@ public final class Settings {
                 };
 
         /**
+         * Whether to show battery estimates in QS
+         * @hide
+         */
+        public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
+
+        /**
          * Did we tell about how they can stop breaking their eyes?
          * @hide
          */
