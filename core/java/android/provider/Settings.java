@@ -5763,6 +5763,14 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(-3, 1);
 
         /**
+         * Controls whether to show R style notification headers
+         * @hide
+         */
+        public static final String NOTIFICATION_HEADERS = "notification_headers";
+
+        private static final Validator NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5874,6 +5882,7 @@ public final class Settings {
             HEADSET_CONNECT_PLAYER,
 	    SYSUI_KEYGUARD_SHOW_BATTERY_BAR,
             SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS,
+            NOTIFICATION_HEADERS,
         };
 
         /**
@@ -6260,6 +6269,7 @@ public final class Settings {
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
 	    VALIDATORS.put(SYSUI_KEYGUARD_SHOW_BATTERY_BAR, SYSUI_KEYGUARD_SHOW_BATTERY_BAR_VALIDATOR);
             VALIDATORS.put(SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
         }
 
         /**
