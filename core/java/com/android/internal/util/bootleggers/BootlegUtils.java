@@ -94,9 +94,27 @@ public class BootlegUtils {
 
     public static void switchScreenOff(Context ctx) {
         PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
-        if (pm!= null) {
+        if (pm!= null && pm.isScreenOn()) {
             pm.goToSleep(SystemClock.uptimeMillis());
         }
+    }
+
+    // Screen on
+    public static void switchScreenOn(Context context) {
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        if (pm == null) return;
+	pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
+    }
+
+    // Method to detect navigation bar is in use
+    public static boolean hasNavigationBar(Context context) {
+        boolean hasNavbar = false;
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            hasNavbar = wm.hasNavigationBar(context.getDisplayId());
+        } catch (RemoteException ex) {
+        }
+        return hasNavbar;
     }
 
     public static void setPartialScreenshot(boolean active) {
@@ -251,4 +269,5 @@ public class BootlegUtils {
      */
     public static Intent INTENT_LAUNCH_APP = new Intent(Intent.ACTION_MAIN)
             .setClassName(APP_PACKAGE_NAME, APP_PACKAGE_NAME + ".SettingsActivity");
+
 }
