@@ -3488,6 +3488,8 @@
      <!-- A notification is shown when a user's selected SSID is later disabled due to connectivity problems.  The complete alert msg is: <hotspot name> + this string, i.e. "Linksys has a poor internet connection" -->
     <string name="wifi_watchdog_network_disabled_detailed">\u0020has a poor internet connection.</string>
 
+    <string name="app_killed_message">Application killed</string>
+
     <!-- Do not translate. Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default" translatable="false">AndroidAP</string>
     <!-- Do not translate. Default access point SSID used for local only hotspot -->

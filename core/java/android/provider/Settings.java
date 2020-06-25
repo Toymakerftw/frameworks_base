@@ -4684,6 +4684,9 @@ public final class Settings {
          */
         public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
 
+	/** @hide */
+	public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
         /** Whether to pulse ambient on new music tracks
          *
          * @hide
