@@ -66,7 +66,7 @@ import com.android.systemui.statusbar.policy.AccessibilityController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.util.wakelock.SettableWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
-import com.android.internal.util.havoc.HavocUtils;
+import com.android.internal.util.bootleggers.BootlegUtils;
 import com.android.systemui.tuner.TunerService;
 
 import java.io.FileDescriptor;

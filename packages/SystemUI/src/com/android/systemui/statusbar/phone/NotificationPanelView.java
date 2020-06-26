@@ -3579,7 +3579,6 @@ public class NotificationPanelView extends PanelView implements
     public void updateDoubleTapToSleep(boolean doubleTapToSleepEnabled) {
         mDoubleTapToSleepEnabled = doubleTapToSleepEnabled;
     }
-}
 
     public void onNotificationClick() {
         mNotificatonClicked = true;
@@ -3640,3 +3639,4 @@ public class NotificationPanelView extends PanelView implements
             mDismissAllButton.startAnimation(mDismissShowAnim);
         }
     }
+}
