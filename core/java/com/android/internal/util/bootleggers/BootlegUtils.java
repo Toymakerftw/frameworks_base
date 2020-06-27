@@ -74,6 +74,28 @@ public class BootlegUtils {
         "com.android.systemui.qstile.circletrim", // 1
         "com.android.systemui.qstile.dualtonecircletrim", // 2
         "com.android.systemui.qstile.squircletrim", // 3
+        "com.android.systemui.qstile.circlegradient", // 4
+        "com.android.systemui.qstile.wavey", // 5
+        "com.android.systemui.qstile.circledualtone", // 6
+        "com.android.systemui.qstile.pokesign", // 7
+        "com.android.systemui.qstile.ninja", // 8
+        "com.android.systemui.qstile.dottedcircle", // 9
+        "com.android.systemui.qstile.attemptmountain", // 10
+	"com.android.systemui.qstile.squaremedo", // 11
+        "com.android.systemui.qstile.hexagon", // 12
+        "com.android.systemui.qstile.star", // 13
+        "com.android.systemui.qstile.gear", // 14
+        "com.android.systemui.qstile.diamond", // 15
+        "com.android.systemui.qstile.cookie", // 16
+        "com.android.systemui.qstile.circleoutline", //17
+        "com.android.systemui.qstile.roundedrect", //18
+        "com.android.systemui.qstile.square", //19
+        "com.android.systemui.qstile.squircle", //20
+        "com.android.systemui.qstile.teardrop", //21
+        "com.android.systemui.qstile.badge", //22
+        "com.android.systemui.qstile.badgetwo", //23
+        "com.android.systemui.qstile.triangle", //24
+        "com.android.systemui.qstile.oos", //25
     };
 
     public static boolean isChineseLanguage() {
