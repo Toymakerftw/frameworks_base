@@ -347,28 +347,34 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     public static final int FADE_KEYGUARD_DURATION = 300;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
 
-    private static final String[] QS_TILE_THEMES = {
+    // QS Tile Styles
+    private static final String[] QS_TILE_STYLES = {
         "com.android.systemui.qstile.default", // 0
-        "com.bootleggers.qstile.squircle", // 1
-        "com.bootleggers.qstile.teardrop", // 2
-        "com.bootleggers.qstile.deletround", // 3
-        "com.bootleggers.qstile.inktober", // 4
-        "com.bootleggers.qstile.shishunights", // 5
-        "com.bootleggers.qstile.circlegradient", // 6
-        "com.bootleggers.qstile.wavey", // 7
-        "com.bootleggers.qstile.circledualtone", // 8
-        "com.bootleggers.qstile.squaremedo", // 9
-        "com.bootleggers.qstile.pokesign", // 10
-        "com.bootleggers.qstile.ninja", // 11
-        "com.bootleggers.qstile.dottedcircle", // 12
-        "com.bootleggers.qstile.shishuink", // 13
-        "com.bootleggers.qstile.attemptmountain", // 14
-        "com.bootleggers.qstile.cookie", // 15
-        "com.bootleggers.qstile.neonlike", // 16
-        "com.bootleggers.qstile.oos", // 17
-        "com.bootleggers.qstile.triangles", // 18
-        "com.bootleggers.qstile.divided", // 19
-        "com.bootleggers.qstile.cosmos" // 20
+        "com.android.systemui.qstile.circlegradient", // 1
+        "com.android.systemui.qstile.circletrim", // 2
+        "com.android.systemui.qstile.dottedcircle", // 3
+        "com.android.systemui.qstile.dualtonecircle", // 4
+        "com.android.systemui.qstile.dualtonecircletrim", // 5
+        "com.android.systemui.qstile.ink", // 6
+        "com.android.systemui.qstile.inkdrop", // 7
+        "com.android.systemui.qstile.mountain", // 8
+        "com.android.systemui.qstile.ninja", // 9
+        "com.android.systemui.qstile.oreo", // 10
+        "com.android.systemui.qstile.oreocircletrim", // 11
+        "com.android.systemui.qstile.oreosquircletrim", // 12
+        "com.android.systemui.qstile.pokesign", // 13
+        "com.android.systemui.qstile.squaremedo", // 14
+        "com.android.systemui.qstile.squircle", // 15
+        "com.android.systemui.qstile.squircletrim", // 16
+        "com.android.systemui.qstile.teardrop", // 17
+        "com.android.systemui.qstile.wavey", // 18
+        "com.android.systemui.qstile.cookie", //19
+        "com.android.systemui.qstile.cosmos", //20
+        "com.android.systemui.qstile.dividedcircle", //21
+        "com.android.systemui.qstile.justicons", //22
+        "com.android.systemui.qstile.neonlike", //23
+        "com.android.systemui.qstile.triangle", //24
+        "com.android.systemui.qstile.oos", //25
     };
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
