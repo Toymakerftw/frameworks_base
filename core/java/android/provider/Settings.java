@@ -5753,6 +5753,12 @@ public final class Settings {
                 };
 
         /**
+         * Whether to show battery estimates in QS
+         * @hide
+         */
+        public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
+
+        /**
          * Did we tell about how they can stop breaking their eyes?
          * @hide
          */
@@ -5781,6 +5787,15 @@ public final class Settings {
          */
         private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
 
+
+        /**
+         * Show data usage in QS header
+         * @hide
+         */
+        public static final String QS_DATAUSAGE = "qs_datausage";
+
+        /** @hide */
+        private static final Validator QS_DATAUSAGE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5895,7 +5910,8 @@ public final class Settings {
 	    SYSUI_KEYGUARD_SHOW_BATTERY_BAR,
             SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS,
             NOTIFICATION_HEADERS,
-			STATUSBAR_PRIVACY_INDICATORS,
+	    STATUSBAR_PRIVACY_INDICATORS,
+            QS_DATAUSAGE,
         };
 
         /**
@@ -6114,7 +6130,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
-			PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
+	    PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
+            PRIVATE_SETTINGS.add(QS_DATAUSAGE);
         }
 
         /**
@@ -6284,7 +6301,8 @@ public final class Settings {
 	    VALIDATORS.put(SYSUI_KEYGUARD_SHOW_BATTERY_BAR, SYSUI_KEYGUARD_SHOW_BATTERY_BAR_VALIDATOR);
             VALIDATORS.put(SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, SYSUI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
-			VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
+            VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
         }
 
         /**
