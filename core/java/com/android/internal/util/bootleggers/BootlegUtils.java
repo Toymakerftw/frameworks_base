@@ -54,9 +54,12 @@ import android.view.DisplayInfo;
 import android.view.IWindowManager;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 
 import com.android.internal.statusbar.IStatusBarService;
 
+import java.util.List;
 import java.util.Locale;
 
 public class BootlegUtils {
@@ -69,6 +72,8 @@ public class BootlegUtils {
     public static final String INTENT_REGION_SCREENSHOT = "action_take_region_screenshot";
     public static final String SYSTEMUI = "com.android.systemui";
     private static IStatusBarService mStatusBarService = null;
+
+    private static OverlayManager mOverlayService;
 
     public static boolean isChineseLanguage() {
        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
@@ -198,6 +203,42 @@ public class BootlegUtils {
         } catch (RemoteException ex) {
         }
         return hasNavbar;
+    }
+
+     // Method to detect whether an overlay is enabled or not
+    public static boolean isThemeEnabled(String packageName) {
+        mOverlayService = new OverlayManager();
+        try {
+            List<OverlayInfo> infos = mOverlayService.getOverlayInfosForTarget("android",
+                    UserHandle.myUserId());
+            for (int i = 0, size = infos.size(); i < size; i++) {
+                if (infos.get(i).packageName.equals(packageName)) {
+                    return infos.get(i).isEnabled();
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static class OverlayManager {
+        private final IOverlayManager mService;
+
+        public OverlayManager() {
+            mService = IOverlayManager.Stub.asInterface(
+                    ServiceManager.getService(Context.OVERLAY_SERVICE));
+        }
+
+        public void setEnabled(String pkg, boolean enabled, int userId)
+                throws RemoteException {
+            mService.setEnabled(pkg, enabled, userId);
+        }
+
+        public List<OverlayInfo> getOverlayInfosForTarget(String target, int userId)
+                throws RemoteException {
+            return mService.getOverlayInfosForTarget(target, userId);
+        }
     }
 
     public static void setPartialScreenshot(boolean active) {

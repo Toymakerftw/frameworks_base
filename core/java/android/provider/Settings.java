@@ -5493,6 +5493,20 @@ public final class Settings {
          */
         public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
 
+	 /**
+         * 0 - Default
+         * 1 - Round with ring
+         * 2 - Two-toned round with ring
+         * 3 - Squircle with ring
+         * @hide
+         */
+        public static final String QS_TILE_STYLE = "qs_tile_style";
+
+	/**
+         * @hide
+         */
+        public static final String SWITCH_STYLE = "switch_style";
+
         /**
          * Whether allowing pocket service to register sensors and dispatch informations.
          *   0 = disabled
