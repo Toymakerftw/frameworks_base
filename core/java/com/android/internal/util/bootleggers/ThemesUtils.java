@@ -40,22 +40,33 @@ public class ThemesUtils {
 	"com.android.system.switch.telegram", // 4
     };
 
-    private static final String[] QS_TILE_THEMES = {
         "com.android.systemui.qstile.default", // 0
-        "com.android.systemui.qstile.circletrim", // 1
-        "com.android.systemui.qstile.dualtonecircletrim", // 2
-        "com.android.systemui.qstile.squircletrim", // 3
-	"com.android.systemui.qstile.wavey", // 4
-        "com.android.systemui.qstile.pokesign", // 5
-        "com.android.systemui.qstile.ninja", // 6
-        "com.android.systemui.qstile.dottedcircle", // 7
-        "com.android.systemui.qstile.attemptmountain", // 8
-	"com.android.systemui.qstile.squaremedo", // 9
-	"com.android.systemui.qstile.inkdrop", // 10
-	"com.android.systemui.qstile.cookie", // 11
-	"com.android.systemui.qstile.circleoutline", //12
-	"com.android.systemui.qstile.neonlike", // 13
-        "com.android.systemui.qstile.triangles", // 14
+    private static final String[] QS_TILE_THEMES = {
+        "com.android.systemui.qstile.circlegradient", // 1
+        "com.android.systemui.qstile.circletrim", // 2
+        "com.android.systemui.qstile.dottedcircle", // 3
+        "com.android.systemui.qstile.dualtonecircle", // 4
+        "com.android.systemui.qstile.dualtonecircletrim", // 5
+        "com.android.systemui.qstile.ink", // 6
+        "com.android.systemui.qstile.inkdrop", // 7
+        "com.android.systemui.qstile.mountain", // 8
+        "com.android.systemui.qstile.ninja", // 9
+        "com.android.systemui.qstile.oreo", // 10
+        "com.android.systemui.qstile.oreocircletrim", // 11
+        "com.android.systemui.qstile.oreosquircletrim", // 12
+        "com.android.systemui.qstile.pokesign", // 13
+        "com.android.systemui.qstile.squaremedo", // 14
+        "com.android.systemui.qstile.squircle", // 15
+        "com.android.systemui.qstile.squircletrim", // 16
+        "com.android.systemui.qstile.teardrop", // 17
+        "com.android.systemui.qstile.wavey", // 18
+        "com.android.systemui.qstile.cookie", //19
+        "com.android.systemui.qstile.cosmos", //20
+        "com.android.systemui.qstile.dividedcircle", //21
+        "com.android.systemui.qstile.justicons", //22
+        "com.android.systemui.qstile.neonlike", //23
+        "com.android.systemui.qstile.triangle", //24
+        "com.android.systemui.qstile.oos", //25
     };
 
     // Switches qs tile style to user selected.
